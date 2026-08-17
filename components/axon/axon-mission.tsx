@@ -55,9 +55,11 @@ export function AxonMission() {
           transition={{ duration: 0.95, delay: 0.25, ease: easeOut }}
           className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-meteorite sm:text-lg"
         >
-          Technology shouldn&apos;t be a luxury. Through GeTech Solutions, we
-          are proving that life-saving innovation can be built locally and
-          affordably.
+          Every stroke Axon catches early is a life that carries on — someone
+          who keeps their speech, their movement, their independence. Through
+          GeTech Solutions, we are proving that life-saving innovation can be
+          built locally, and priced so that the people who need it most are the
+          ones who get it.
         </motion.p>
 
         <motion.div

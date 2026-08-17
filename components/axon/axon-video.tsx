@@ -137,6 +137,16 @@ export function AxonVideo() {
           >
             See Axon in Action.
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, delay: 0.2, ease: easeOut }}
+            className="mx-auto mt-5 max-w-xl text-meteorite"
+          >
+            A warning sign leaving the wrist, clearing the cloud, and landing on
+            a clinician&apos;s screen — the whole chain, in real time.
+          </motion.p>
         </div>
 
         <motion.div

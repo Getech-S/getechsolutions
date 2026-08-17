@@ -83,8 +83,9 @@ export function AxonHero() {
           transition={{ duration: 1, delay: 0.7, ease: easeOut }}
           className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-platinum [text-shadow:0_2px_20px_rgba(2,4,6,0.9)] sm:text-lg"
         >
-          The Axon Stroke Monitor. Clinical-grade stroke prevention and
-          continuous cardiovascular tracking, built affordably for everyone.
+          The Axon Stroke Monitor. Continuous cardiovascular tracking that
+          catches the warning signs of a stroke early — and reaches a doctor
+          while there is still time to stop it.
         </motion.p>
 
         <motion.div
@@ -106,6 +107,15 @@ export function AxonHero() {
             </a>
           </Magnetic>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.15, ease: easeOut }}
+          className="mt-7 text-[11px] tracking-[0.2em] text-meteorite/70 uppercase"
+        >
+          Clinical-grade monitoring · At a fraction of the cost
+        </motion.p>
       </motion.div>
 
       <motion.div

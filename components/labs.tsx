@@ -44,7 +44,7 @@ const verticals: Vertical[] = [
     flagship: {
       name: "Axon",
       tagline:
-        "Our flagship stroke monitor — an affordable, AI-powered IoT wearable that catches the warning signs early and reaches a doctor in under 1.5 seconds.",
+        "Our flagship stroke monitor. It catches the warning signs of a stroke in the weeks before it strikes, and puts a doctor on the case in under 1.5 seconds — at a fraction of the cost of a clinical monitor.",
       href: "/axon",
     },
     visual: (

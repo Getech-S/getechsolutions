@@ -10,9 +10,24 @@ const TRACE =
   "M0 60 L60 60 L74 60 L82 34 L90 86 L98 60 L150 60 L164 60 L172 36 L180 84 L188 60 L240 60 L254 60 L262 40 L270 80 L278 60 L330 60 L344 60 L352 48 L360 70 L368 60 L430 60 L1200 60";
 
 const lines = [
-  "In many communities, high blood pressure goes undetected",
-  "until it becomes a crisis. Existing health trackers cost more",
-  "than most families make in months. We are changing that.",
+  "High blood pressure is the leading cause of stroke — and it arrives without a sound.",
+  "No pain. No symptoms. Nothing to feel, until the moment it takes something from you: your speech, your movement, your independence, your life.",
+  "The warning signs are there for weeks beforehand. Almost nobody is being watched closely enough to see them.",
+];
+
+const stakes = [
+  {
+    label: "Silent",
+    body: "Hypertension usually carries no symptoms at all. You cannot feel your pressure climbing toward a crisis.",
+  },
+  {
+    label: "Sudden",
+    body: "When a stroke comes, damage is measured in minutes. Every one that passes costs brain tissue that does not grow back.",
+  },
+  {
+    label: "Preventable",
+    body: "Caught early, dangerous pressure is treatable. The vast majority of strokes never have to happen at all.",
+  },
 ];
 
 export function AxonProblem() {
@@ -87,14 +102,14 @@ export function AxonProblem() {
           The Silent Killer.
         </motion.h2>
 
-        <div className="mt-9 space-y-1.5">
+        <div className="mx-auto mt-9 max-w-2xl space-y-5">
           {lines.map((line, i) => (
             <motion.p
               key={line}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-90px" }}
-              transition={{ duration: 0.85, delay: 0.25 + i * 0.14, ease: easeOut }}
+              transition={{ duration: 0.85, delay: 0.25 + i * 0.16, ease: easeOut }}
               className="text-base leading-relaxed text-meteorite sm:text-lg"
             >
               {line}
@@ -104,12 +119,48 @@ export function AxonProblem() {
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-90px" }}
-            transition={{ duration: 0.9, delay: 0.72, ease: easeOut }}
-            className="pt-3 text-lg font-semibold text-white sm:text-xl"
+            transition={{ duration: 0.9, delay: 0.78, ease: easeOut }}
+            className="pt-4 text-xl font-semibold text-white sm:text-2xl"
           >
-            Axon catches the warning signs before it&apos;s too late.
+            Axon watches for those signs — and gets a doctor involved while
+            there is still time to act.
           </motion.p>
         </div>
+
+        {/* the three stakes */}
+        <div className="mt-16 grid gap-4 text-left sm:grid-cols-3">
+          {stakes.map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-70px" }}
+              transition={{ duration: 0.8, delay: 0.15 + i * 0.13, ease: easeOut }}
+              className="rounded-2xl border border-meteorite/10 bg-obsidian/60 p-6 backdrop-blur-sm"
+            >
+              <p
+                className={`mb-3 text-[10px] tracking-[0.26em] uppercase ${
+                  s.label === "Preventable" ? "text-glow/85" : "text-[#e2545c]/80"
+                }`}
+              >
+                {s.label}
+              </p>
+              <p className="text-sm leading-relaxed text-meteorite">{s.body}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-70px" }}
+          transition={{ duration: 0.9, delay: 0.55 }}
+          className="mx-auto mt-12 max-w-xl text-sm leading-relaxed text-meteorite/70"
+        >
+          Axon is also built to cost a fraction of a clinical monitor — because
+          a warning system that only reaches the wealthy isn&apos;t much of a
+          warning system.
+        </motion.p>
       </div>
     </section>
   );

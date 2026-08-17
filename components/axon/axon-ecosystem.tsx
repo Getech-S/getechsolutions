@@ -13,7 +13,7 @@ const steps = [
     icon: Watch,
     title: "The Wristband",
     kicker: "Always On",
-    body: "Continuously tracks your pulse, blood oxygen, and blood pressure trends using low-power sensors.",
+    body: "Low-power sensors track your pulse, blood oxygen, and blood pressure trends without interruption — the exact signals that rise before a stroke, watched on the days nobody is testing you.",
     Visual: VisualWristband,
   },
   {
@@ -21,7 +21,7 @@ const steps = [
     icon: BrainCircuit,
     title: "The AI Brain",
     kicker: "No False Alarms",
-    body: "Our smart algorithm learns your body. It uses motion sensors to know if your heart is racing because you are walking, or if it's a real medical emergency.",
+    body: "Our algorithm learns your body. Motion sensors tell it whether your heart is racing because you are walking, or because something is genuinely wrong. An alarm people learn to ignore saves nobody — so Axon only raises one when it matters.",
     Visual: VisualAI,
   },
   {
@@ -29,7 +29,7 @@ const steps = [
     icon: Stethoscope,
     title: "The Doctor's Link",
     kicker: "Zero Latency",
-    body: "If a dangerous spike happens, Axon doesn't just beep. It sends a red alert to a doctor's dashboard in under 1.5 seconds, allowing them to message you instantly.",
+    body: "In a stroke, damage is measured in minutes. So Axon doesn't just beep at you — it sends a red alert to a doctor's dashboard in under 1.5 seconds, and they can message you back immediately. Warning becomes treatment before the damage is done.",
     Visual: VisualDoctor,
   },
 ];
@@ -94,8 +94,8 @@ export function AxonEcosystem() {
           transition={{ duration: 0.9, delay: 0.2, ease: easeOut }}
           className="mx-auto mt-5 max-w-xl text-meteorite"
         >
-          Three parts, one continuous loop — from your wrist to your doctor&apos;s
-          screen.
+          Three parts, one unbroken chain — from the first warning sign on your
+          wrist to a doctor acting on it, in seconds.
         </motion.p>
       </div>
 
