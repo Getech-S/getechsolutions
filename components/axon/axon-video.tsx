@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Play, Watch, Cloud, MonitorSmartphone } from "lucide-react";
+import { Play, Watch, Cloud, Smartphone, MonitorSmartphone } from "lucide-react";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
@@ -15,9 +15,10 @@ const easeOut = [0.22, 1, 0.36, 1] as const;
  */
 function AmbientFilm() {
   const nodes = [
-    { icon: Watch, label: "Wristband", x: "16%" },
-    { icon: Cloud, label: "Axon Cloud", x: "50%" },
-    { icon: MonitorSmartphone, label: "Clinician", x: "84%" },
+    { icon: Watch, label: "Wristband", x: "12%" },
+    { icon: Cloud, label: "Axon Cloud", x: "38%" },
+    { icon: Smartphone, label: "Your App", x: "64%" },
+    { icon: MonitorSmartphone, label: "Clinician", x: "88%" },
   ];
 
   return (
@@ -46,20 +47,20 @@ function AmbientFilm() {
       ))}
 
       {/* the transit line */}
-      <div className="absolute inset-x-[16%] top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-nordic/20 via-nordic-bright/45 to-nordic/20" />
+      <div className="absolute inset-x-[12%] top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-nordic/20 via-nordic-bright/45 to-nordic/20" />
 
       {/* data packets flowing left → right */}
       {[0, 1, 2, 3].map((i) => (
         <motion.span
           key={i}
           className="absolute top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-glow shadow-[0_0_14px_rgba(125,211,252,0.95)]"
-          animate={{ left: ["16%", "84%"], opacity: [0, 1, 1, 0] }}
+          animate={{ left: ["12%", "88%"], opacity: [0, 1, 1, 0] }}
           transition={{
-            duration: 3.2,
+            duration: 3.6,
             repeat: Infinity,
-            delay: i * 0.8,
+            delay: i * 0.9,
             ease: "easeInOut",
-            times: [0, 0.12, 0.88, 1],
+            times: [0, 0.1, 0.9, 1],
           }}
         />
       ))}
@@ -144,8 +145,8 @@ export function AxonVideo() {
             transition={{ duration: 0.9, delay: 0.2, ease: easeOut }}
             className="mx-auto mt-5 max-w-xl text-meteorite"
           >
-            A warning sign leaving the wrist, clearing the cloud, and landing on
-            a clinician&apos;s screen — the whole chain, in real time.
+            A warning sign leaving the wrist, reaching your phone, and landing
+            on a clinician&apos;s screen — the whole chain, in real time.
           </motion.p>
         </div>
 

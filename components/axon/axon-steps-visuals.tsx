@@ -1,7 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Activity, Droplets, Gauge, Footprints, ShieldCheck, Siren } from "lucide-react";
+import {
+  Activity,
+  Droplets,
+  Gauge,
+  Footprints,
+  ShieldCheck,
+  Siren,
+  TrendingDown,
+  Bell,
+} from "lucide-react";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
@@ -207,7 +216,114 @@ export function VisualAI() {
 }
 
 /* ——————————————————————————————————————————————
-   STEP 3 — The Doctor's Link: alert in under 1.5s
+   STEP 3 — The Axon App: your own health, in plain language
+—————————————————————————————————————————————— */
+export function VisualApp() {
+  const bars = [52, 61, 48, 70, 58, 44, 39];
+
+  return (
+    <div className="relative flex h-full w-full items-center justify-center">
+      {/* soft halo behind the phone */}
+      <div
+        className="absolute h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(125,211,252,0.12),transparent_70%)]"
+        aria-hidden
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 26 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.75, ease: easeOut }}
+        className="relative z-10 w-[16.5rem] rounded-[2rem] border border-meteorite/20 bg-midnight p-3 shadow-[0_28px_70px_rgba(2,4,6,0.9)]"
+      >
+        {/* speaker slot */}
+        <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-meteorite/25" />
+
+        <div className="space-y-2.5 rounded-[1.5rem] bg-obsidian/80 p-3.5">
+          {/* app header */}
+          <div className="flex items-center justify-between">
+            <span className="font-heading text-[11px] tracking-[0.2em] text-platinum uppercase">
+              Axon
+            </span>
+            <Bell size={12} className="text-meteorite/60" />
+          </div>
+
+          {/* today's reading */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
+            className="rounded-xl border border-glow/20 bg-glow/[0.06] p-3.5"
+          >
+            <p className="mb-1 text-[9px] tracking-[0.2em] text-meteorite uppercase">
+              Blood pressure today
+            </p>
+            <div className="flex items-end justify-between">
+              <span className="font-heading text-2xl font-bold text-white tabular-nums">
+                124<span className="text-meteorite">/</span>79
+              </span>
+              <span className="flex items-center gap-1 rounded-full border border-glow/30 px-2 py-0.5 text-[9px] text-glow">
+                <TrendingDown size={9} />
+                Steady
+              </span>
+            </div>
+          </motion.div>
+
+          {/* weekly trend */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35, ease: easeOut }}
+            className="rounded-xl border border-meteorite/12 p-3.5"
+          >
+            <p className="mb-3 text-[9px] tracking-[0.2em] text-meteorite uppercase">
+              Last 7 days
+            </p>
+            <div className="flex h-14 items-end gap-1.5">
+              {bars.map((h, i) => (
+                <motion.span
+                  key={i}
+                  className="flex-1 rounded-sm bg-gradient-to-t from-nordic to-glow/70"
+                  initial={{ height: 0 }}
+                  animate={{ height: `${h}%` }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.5 + i * 0.07,
+                    ease: easeOut,
+                  }}
+                />
+              ))}
+            </div>
+          </motion.div>
+
+          {/* plain-language insight */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.05, ease: easeOut }}
+            className="rounded-xl border border-meteorite/12 bg-midnight/70 p-3.5"
+          >
+            <p className="text-[11px] leading-relaxed text-platinum">
+              Your pressure is settling. Evenings are still running high — worth
+              mentioning at your next visit.
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.3, duration: 0.7 }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.28em] text-meteorite/60 uppercase"
+      >
+        Your data · In your hands
+      </motion.p>
+    </div>
+  );
+}
+
+/* ——————————————————————————————————————————————
+   STEP 4 — The Doctor's Link: alert in under 1.5s
 —————————————————————————————————————————————— */
 export function VisualDoctor() {
   return (
@@ -215,7 +331,7 @@ export function VisualDoctor() {
       <div className="relative z-10 w-full max-w-sm">
         {/* transit path */}
         <div className="relative mb-5 flex items-center justify-between px-2">
-          {["Band", "Cloud", "Doctor"].map((node, i) => (
+          {["Band", "Cloud", "App", "Doctor"].map((node, i) => (
             <div key={node} className="z-10 flex flex-col items-center gap-2">
               <motion.span
                 className="h-2.5 w-2.5 rounded-full bg-glow"

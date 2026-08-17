@@ -16,7 +16,7 @@ const phases = [
     phase: "Phase 02",
     title: "Engineering Prototype",
     state: "In progress",
-    body: "Building and bench-testing the wearable and the clinician console end to end.",
+    body: "Building and bench-testing the wearable, the companion app, and the clinician console end to end.",
   },
   {
     phase: "Phase 03",

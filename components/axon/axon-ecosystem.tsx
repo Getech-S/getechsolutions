@@ -2,8 +2,13 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Watch, BrainCircuit, Stethoscope } from "lucide-react";
-import { VisualWristband, VisualAI, VisualDoctor } from "./axon-steps-visuals";
+import { Watch, BrainCircuit, Smartphone, Stethoscope } from "lucide-react";
+import {
+  VisualWristband,
+  VisualAI,
+  VisualApp,
+  VisualDoctor,
+} from "./axon-steps-visuals";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
@@ -26,6 +31,14 @@ const steps = [
   },
   {
     n: "03",
+    icon: Smartphone,
+    title: "The Axon App",
+    kicker: "In Your Hands",
+    body: "Everything Axon sees goes to you as well. The app turns weeks of readings into plain language — how your pressure is trending, what is changing, and when it is worth seeing someone. Your own health stops being something you only hear about at a clinic.",
+    Visual: VisualApp,
+  },
+  {
+    n: "04",
     icon: Stethoscope,
     title: "The Doctor's Link",
     kicker: "Zero Latency",
@@ -51,7 +64,8 @@ export function AxonEcosystem() {
       const p =
         travel > 0 ? Math.min(1, Math.max(0, -rect.top / travel)) : 0;
       setProgress(p);
-      setActive(p < 0.34 ? 0 : p < 0.67 ? 1 : 2);
+      // one equal band per step across the pinned scroll distance
+      setActive(Math.min(steps.length - 1, Math.floor(p * steps.length)));
     };
 
     measure();
@@ -94,13 +108,13 @@ export function AxonEcosystem() {
           transition={{ duration: 0.9, delay: 0.2, ease: easeOut }}
           className="mx-auto mt-5 max-w-xl text-meteorite"
         >
-          Three parts, one unbroken chain — from the first warning sign on your
-          wrist to a doctor acting on it, in seconds.
+          Four parts, one unbroken chain — from the first warning sign on your
+          wrist, to your own phone, to a doctor acting on it in seconds.
         </motion.p>
       </div>
 
       {/* ——— Pinned scroll story (desktop) ——— */}
-      <div ref={ref} className="relative hidden h-[320vh] lg:block">
+      <div ref={ref} className="relative hidden h-[420vh] lg:block">
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <div className="mx-auto grid w-full max-w-6xl grid-cols-2 items-center gap-16 px-8">
             {/* copy column */}
@@ -133,7 +147,7 @@ export function AxonEcosystem() {
 
               {/* All three are mounted and crossfaded with CSS so a fast
                   scroll never waits on an exit animation to finish. */}
-              <div className="relative min-h-[19rem]">
+              <div className="relative min-h-[23rem]">
                 {steps.map((s, i) => {
                   const Icon = s.icon;
                   const isActive = i === active;
