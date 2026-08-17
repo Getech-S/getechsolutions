@@ -64,7 +64,7 @@ export function AxonHero() {
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-glow" />
           </span>
           <span className="text-[11px] tracking-[0.24em] text-platinum uppercase">
-            Axon by GeTech Solutions
+            Axon · In development at GeTech Labs
           </span>
         </motion.div>
 

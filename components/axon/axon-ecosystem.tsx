@@ -29,7 +29,7 @@ const steps = [
     icon: Stethoscope,
     title: "The Doctor's Link",
     kicker: "Zero Latency",
-    body: "In a stroke, damage is measured in minutes. So Axon doesn't just beep at you — it sends a red alert to a doctor's dashboard in under 1.5 seconds, and they can message you back immediately. Warning becomes treatment before the damage is done.",
+    body: "In a stroke, damage is measured in minutes. So Axon isn't designed to just beep at you — it is built to put a red alert on a doctor's dashboard in under 1.5 seconds, so they can reach you immediately. Warning becomes treatment before the damage is done.",
     Visual: VisualDoctor,
   },
 ];

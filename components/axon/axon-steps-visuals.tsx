@@ -313,7 +313,7 @@ export function VisualDoctor() {
             1.5
           </span>
           <span className="text-[10px] leading-tight tracking-[0.2em] text-meteorite/70 uppercase">
-            seconds
+            second target
             <br />
             to doctor
           </span>

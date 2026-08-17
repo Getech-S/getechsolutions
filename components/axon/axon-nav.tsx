@@ -44,8 +44,11 @@ export function AxonNav() {
           </a>
 
           <div className="flex items-center gap-5">
-            <span className="font-heading hidden text-sm font-semibold tracking-[0.22em] text-white uppercase md:inline">
+            <span className="font-heading hidden items-center gap-2.5 text-sm font-semibold tracking-[0.22em] text-white uppercase md:inline-flex">
               Axon
+              <span className="rounded-full border border-meteorite/25 px-2 py-0.5 text-[8px] font-medium tracking-[0.14em] text-meteorite">
+                In development
+              </span>
             </span>
             <Magnetic strength={0.25}>
               <a

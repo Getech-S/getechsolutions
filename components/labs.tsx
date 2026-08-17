@@ -258,7 +258,7 @@ export function Labs() {
                           <span className="relative inline-flex h-2 w-2 rounded-full bg-glow" />
                         </span>
                         <span className="text-[10px] tracking-[0.24em] text-glow/80 uppercase">
-                          Flagship Product
+                          Flagship Product · In Development
                         </span>
                       </div>
                       <div className="mb-1.5 flex items-center gap-2">

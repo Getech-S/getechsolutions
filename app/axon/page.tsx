@@ -4,6 +4,7 @@ import { AxonHero } from "@/components/axon/axon-hero";
 import { AxonProblem } from "@/components/axon/axon-problem";
 import { AxonEcosystem } from "@/components/axon/axon-ecosystem";
 import { AxonVideo } from "@/components/axon/axon-video";
+import { AxonStatus } from "@/components/axon/axon-status";
 import { AxonMission } from "@/components/axon/axon-mission";
 
 export const metadata: Metadata = {
@@ -45,6 +46,7 @@ export default function AxonPage() {
       <AxonProblem />
       <AxonEcosystem />
       <AxonVideo />
+      <AxonStatus />
       <AxonMission />
     </main>
   );
