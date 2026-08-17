@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   HeartPulse,
@@ -10,13 +10,25 @@ import {
   MapPin,
   Users,
   ArrowUpRight,
+  type LucideIcon,
 } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
-const verticals = [
+type Vertical = {
+  id: string;
+  icon: LucideIcon;
+  label: string;
+  title: string;
+  description: string;
+  features: string[];
+  visual: ReactNode;
+  flagship?: { name: string; tagline: string; href: string };
+};
+
+const verticals: Vertical[] = [
   {
     id: "healthcare",
     icon: HeartPulse,
@@ -29,6 +41,12 @@ const verticals = [
       "AI-assisted clinical dashboards",
       "Telehealth engagement portals",
     ],
+    flagship: {
+      name: "Axon",
+      tagline:
+        "Our flagship stroke monitor — an affordable, AI-powered IoT wearable that catches the warning signs early and reaches a doctor in under 1.5 seconds.",
+      href: "/axon",
+    },
     visual: (
       <div className="space-y-3">
         <div className="flex items-center justify-between rounded-xl border border-emerald-400/15 bg-obsidian/70 p-4">
@@ -229,6 +247,34 @@ export function Labs() {
                       </li>
                     ))}
                   </ul>
+                  {vertical.flagship && (
+                    <a
+                      href={vertical.flagship.href}
+                      className="group mt-8 block overflow-hidden rounded-2xl border border-glow/20 bg-gradient-to-br from-nordic/25 to-obsidian/60 p-5 transition-all duration-500 hover:border-glow/45 hover:shadow-[0_0_38px_rgba(125,211,252,0.12)]"
+                    >
+                      <div className="mb-2 flex items-center gap-2.5">
+                        <span className="relative flex h-2 w-2">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-glow/60" />
+                          <span className="relative inline-flex h-2 w-2 rounded-full bg-glow" />
+                        </span>
+                        <span className="text-[10px] tracking-[0.24em] text-glow/80 uppercase">
+                          Flagship Product
+                        </span>
+                      </div>
+                      <div className="mb-1.5 flex items-center gap-2">
+                        <h4 className="font-heading text-xl font-semibold text-white">
+                          {vertical.flagship.name}
+                        </h4>
+                        <ArrowUpRight
+                          size={15}
+                          className="text-glow/70 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        />
+                      </div>
+                      <p className="text-sm text-meteorite">
+                        {vertical.flagship.tagline}
+                      </p>
+                    </a>
+                  )}
                   <a
                     href="#contact"
                     className="group mt-8 inline-flex items-center gap-2 text-sm text-emerald-300/80 transition-colors hover:text-emerald-200"

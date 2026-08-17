@@ -77,8 +77,8 @@
     for (let x = cell; x < W; x += cell) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
     for (let y = cell; y < H; y += cell) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
 
-    // nordic glow, right of center
-    let g = ctx.createRadialGradient(W * 0.72, H * 0.5, 0, W * 0.72, H * 0.5, W * 0.35);
+    // nordic glow, left of center (behind the watermark)
+    let g = ctx.createRadialGradient(W * 0.28, H * 0.5, 0, W * 0.28, H * 0.5, W * 0.35);
     g.addColorStop(0, "rgba(43,65,98,0.4)");
     g.addColorStop(1, "rgba(43,65,98,0)");
     ctx.fillStyle = g;
@@ -93,11 +93,11 @@
       ctx.fill();
     }
 
-    // large quiet watermark mark bleeding off the right edge
-    drawMark(ctx, W * 0.93, H * 0.52, H * 0.62, "quiet");
+    // large quiet watermark mark bleeding off the left edge
+    drawMark(ctx, W * 0.07, H * 0.52, H * 0.62, "quiet");
 
-    // lockup — kept clear of the bottom-left avatar overlap zone
-    const cx = W * 0.155, cy = H * 0.42, R = H * 0.155;
+    // lockup on the right — clear of the bottom-left avatar overlap zone
+    const cx = W * 0.585, cy = H * 0.42, R = H * 0.155;
     drawMark(ctx, cx, cy, R, "gradient");
 
     ctx.textBaseline = "alphabetic";
@@ -120,7 +120,7 @@
     try { ctx.letterSpacing = (4 * S).toFixed(1) + "px"; } catch (e) {}
     ctx.font = `600 ${16 * S}px 'Space Grotesk', sans-serif`;
     ctx.fillStyle = "#4A6FA5";
-    ctx.fillText("GETECHSOLUTIONS.COM", wx, cy + 102 * S);
+    ctx.fillText("GETECH.RW", wx, cy + 102 * S);
     try { ctx.letterSpacing = "0px"; } catch (e) {}
 
     // thin gradient hairline along the bottom
